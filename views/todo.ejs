@@ -1,37 +1,120 @@
 <!DOCTYPE html>
-
 <html>
 
-    <head>
-        <title>My shaandaar todolist</title>
-        <style>
-            a {
-                text-decoration: none;
-                color: black;
-            }
+<head>
+    <title>Aditya's Personal Online Todo List</title>
 
-        </style>
-    </head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fa;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
 
-    <body>
-        <h1>TrainWithShubham Community is Super Awesome</h1>
+        .container {
+            background: white;
+            width: 450px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #eef2f5;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #444;
+        }
+
+        a:hover {
+            color: #1a73e8;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background: #1558b0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Aditya’s Personal Online Todo List</h1>
+
         <ul>
             <% todolist.forEach(function(todo, index) { %>
-            <li>
-                <a href="/todo/delete/<%= index %>">✘</a>
-                <a href="/todo/<%= index %>">✎</a>
-                <%- todo %>
-            </li>
+                <li>
+                    <span><%- todo %></span>
+                    <div class="actions">
+                        <a href="/todo/<%= index %>">✎</a>
+                        <a href="/todo/delete/<%= index %>">✘</a>
+                    </div>
+                </li>
             <% }); %>
         </ul>
 
         <form action="/todo/add/" method="post">
-            <p>
-                <label for="newtodo">What shoud I do?</label>
-                <input type="text" name="newtodo" id="newtodo" autofocus />
-                <input type="submit" value="Add" />
-            </p>
+            <input type="text" name="newtodo" id="newtodo" placeholder="Add a new task..." autofocus />
+            <input type="submit" value="Add" />
         </form>
-    </body>
+
+    </div>
+
+</body>
 
 </html>
