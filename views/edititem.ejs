@@ -1,28 +1,103 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Todo</title>
 
-    <head>
-        <title>Edit <%- todo %></title>
-        <style>
-            a {
-                text-decoration: none;
-                color: black;
-            }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #eaeaea;
+        }
 
-        </style>
-    </head>
+        .card {
+            background: #111;
+            padding: 40px;
+            width: 400px;
+            border-radius: 14px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+            border: 1px solid #2b2b2b;
+        }
 
-    <body>
-        <h1>Edit <%- todo %>:</h1>
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 26px;
+            font-weight: 600;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 6px;
+            display: block;
+            color: #bbbbbb;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            margin-bottom: 20px;
+            background: #1e1e1e;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        input[type="text"]::placeholder {
+            color: #666;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: #0d6efd;
+            color: #ffffff;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: #0b5ed7;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0d6efd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Edit Todo</h1>
+
         <form action="/todo/edit/<%= todoIdx %>" method="post">
-            <p>
-                <label for="editTodo">Change to:</label>
-                <input type="hidden" name="_method" value="PUT">
-                <input type="text" name="editTodo" id="editTodo" autofocus placeholder="<%- todo %>" />
-                <input type="submit" value="Save" />
-            </p>
-        </form>
-    </body>
+            <input type="hidden" name="_method" value="PUT">
 
+            <label for="editTodo">Current:</label>
+            <input type="text" id="editTodo" name="editTodo" 
+                   placeholder="<%- todo %>" autofocus />
+
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+
+</body>
 </html>
