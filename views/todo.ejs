@@ -8,32 +8,34 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: "Poppins", Arial, sans-serif;
-            background: linear-gradient(135deg, #1a73e8, #6a11cb);
             height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background: radial-gradient(circle at top, #1a1a1a, #000000 70%);
             display: flex;
             justify-content: center;
             align-items: center;
+            color: #f5f5f5;
         }
 
         .container {
-            width: 460px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            padding: 35px;
+            width: 480px;
+            background: rgba(20, 20, 20, 0.7);
+            padding: 40px;
             border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-            color: white;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 35px rgba(255, 215, 0, 0.08);
+            backdrop-filter: blur(14px);
         }
 
         h1 {
             text-align: center;
-            font-size: 30px;
-            font-weight: 800;
-            margin-bottom: 30px;
-            background: linear-gradient(90deg, #fff, #e3dffd);
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 35px;
+            background: linear-gradient(90deg, #ffd700, #fbe7a1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
 
         ul {
@@ -43,74 +45,81 @@
         }
 
         li {
-            background: rgba(255, 255, 255, 0.18);
-            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px 18px;
             border-radius: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            transition: transform 0.2s ease, background 0.3s ease;
-            font-size: 16px;
+            align-items: center;
             font-weight: 600;
+            font-size: 16px;
+            transition: 0.25s ease;
+            border: 1px solid transparent;
         }
 
         li:hover {
-            transform: scale(1.03);
-            background: rgba(255, 255, 255, 0.28);
+            transform: translateX(6px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(255, 255, 255, 0.10);
         }
 
         .actions a {
             text-decoration: none;
-            color: #ffffff;
+            color: #ffd700;
             font-size: 20px;
-            font-weight: bold;
-            margin-left: 12px;
-            transition: color 0.2s ease, transform 0.2s ease;
+            margin-left: 14px;
+            transition: 0.25s ease;
         }
 
         .actions a:hover {
-            color: #ffcb05;
-            transform: scale(1.2);
+            color: #fff4b8;
+            transform: scale(1.25);
         }
 
         form {
-            margin-top: 25px;
+            margin-top: 28px;
             display: flex;
             gap: 12px;
         }
 
         input[type="text"] {
             flex: 1;
-            padding: 12px;
+            padding: 14px;
             font-size: 15px;
             border-radius: 10px;
-            border: none;
-            outline: none;
-            background: rgba(255, 255, 255, 0.25);
-            color: white;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            color: #f5f5f5;
             font-weight: 600;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.12);
         }
 
         input[type="text"]::placeholder {
-            color: #eaeaea;
+            color: #d6d6d6;
         }
 
         input[type="submit"] {
-            background: linear-gradient(135deg, #ffcb05, #ff9f1c);
+            background: linear-gradient(135deg, #ffd700, #f3c953);
             border: none;
-            color: black;
-            padding: 12px 20px;
+            color: #000;
+            padding: 14px 22px;
             font-size: 15px;
             font-weight: 700;
             border-radius: 10px;
             cursor: pointer;
-            transition: 0.2s ease;
+            transition: 0.25s ease;
         }
 
         input[type="submit"]:hover {
-            transform: scale(1.06);
-            background: linear-gradient(135deg, #ffe16b, #ffbf3f);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
         }
     </style>
 </head>
@@ -134,7 +143,7 @@
         </ul>
 
         <form action="/todo/add/" method="post">
-            <input type="text" name="newtodo" placeholder="Add a new task..." autofocus />
+            <input type="text" name="newtodo" placeholder="Add a new classy task..." autofocus />
             <input type="submit" value="Add" />
         </form>
 
