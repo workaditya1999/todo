@@ -5,7 +5,7 @@ const express = require('express'),
     app = express(),
     port = 8000;
 
-app.set('view engine', 'ejs');   // REQUIRED LINE
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -30,14 +30,14 @@ app.get('/todo', function (req, res) {
 
 .post('/todo/add/', function (req, res) {
     let newTodo = sanitizer.escape(req.body.newtodo);
-    if (req.body.newtodo != '') {
+    if (req.body.newtodo !== '') {
         todolist.push(newTodo);
     }
     res.redirect('/todo');
 })
 
 .get('/todo/delete/:id', function (req, res) {
-    if (req.params.id != '') {
+    if (req.params.id !== '') {
         todolist.splice(req.params.id, 1);
     }
     res.redirect('/todo');
@@ -61,7 +61,7 @@ app.get('/todo', function (req, res) {
 .put('/todo/edit/:id', function (req, res) {
     let todoIdx = req.params.id;
     let editTodo = sanitizer.escape(req.body.editTodo);
-    if (todoIdx != '' && editTodo != '') {
+    if (todoIdx !== '' && editTodo !== '') {
         todolist[todoIdx] = editTodo;
     }
     res.redirect('/todo');
@@ -71,7 +71,7 @@ app.get('/todo', function (req, res) {
     res.redirect('/todo');
 })
 
-.listen(port, function () {
+.listen(port, '0.0.0.0', function () {
     console.log(`Todolist running on http://0.0.0.0:${port}`);
 });
 
